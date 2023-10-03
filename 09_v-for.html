@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <li v-for="item in fruits">{{item}}</li>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>City</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  v-for="person in students">
+                <td>{{person.name}}</td> 
+                <td>{{person.email}}</td> 
+                <td>{{person.city}}</td> 
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                fruits:[
+                    "Apple",
+                    "Banana",
+                    "Orange"
+                ],
+                students:[
+                    {
+                    name:"Su Su",
+                    email:"susu@gmail.com",
+                    city:"MDY"
+                    },
+                    {
+                    name:"Mg Mg",
+                    email:"mgmg@gmail.com",
+                    city:"YGN"
+                    },
+                    {
+                    name:"Ko Ko",
+                    email:"koko@gmail.com",
+                    city:"Bago"
+                    }
+
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

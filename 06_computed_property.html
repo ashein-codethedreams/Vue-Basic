@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+   <div id="app">
+       <button v-on:click="increase">Click Me</button>
+       <p>Count: {{count}}</p>
+       <h1>{{showTitle()}}</h1>
+       <h1>Computed: {{upperTitle}}</h1>
+       <button v-on:click="changeTitle">Change Title</button>
+   </div>
+   <script>
+       new Vue({
+           el:"#app",
+           data:{
+               title: "Hello",
+               count:0,
+           },
+           computed:{
+               upperTitle(){
+                    console.log("upperTitle worked.");
+                    return this.title.toUpperCase();
+               }
+           },
+           watch:{
+               count:function(value){
+                   alert("Hey New Value :"+value);
+               }
+           },
+           methods:{
+               changeTitle(){
+                   this.title = "Code2";
+               },
+               increase(){
+                   this.count++;
+               },
+
+               showTitle(){
+                   console.log("showTitle worked.");
+                   return this.title.toUpperCase();
+               }
+           }
+       })
+   </script>
+</body>
+</html>

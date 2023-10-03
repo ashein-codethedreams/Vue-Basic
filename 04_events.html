@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Demo</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <h1>{{title}}</h1>
+       <p>{{showHello()}}</p>
+       <button v-on:click="onClickButton">Click Me</button>
+       <p>Count: {{count}}</p>
+       <button v-on:click="showMessage('Why are you')">Message</button>
+       <p v-on:mousemove="updateCoordinates('Hello',$event)">Coordinates: X={{x}},Y={{y}}</p>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                title:"VueJS App",
+                count: 0,
+                x:10,
+                y:5
+            },
+            methods:{
+                updateCoordinates:function(message,event){
+                   this.x = event.clientX;
+                   this.y = event.clientY;
+                },
+                showHello:function(){
+                    return "Hello";
+                },
+                showMessage:function(message){
+                    alert(message);
+                },
+                onClickButton:function(){
+                    this.count++;
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

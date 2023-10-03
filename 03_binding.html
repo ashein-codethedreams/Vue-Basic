@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue Demo</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      <h1>{{title}}</h1>
+      <p v-once>{{message}}</p>
+      <p>{{message}}</p>
+      <hr>
+      <h2>{{sayHello()}}</h2>
+      <a v-bind:href="myLink">Google</a>
+      <img v-bind:src="myImg">
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                title:"Hello World",
+                message:"First VueJS Application",
+                myLink:"http://www.google.com",
+                myImg:"https://www.google.com/url?sa=i&url=https%3A%2F%2Fnickscs.com%2Fproduct%2Fthor-ragnarok-mezco-toys%2F&psig=AOvVaw0BLoIwbERGci5QVNBG0gKA&ust=1578888978167000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOCa2dSZ_eYCFQAAAAAdAAAAABAD"
+            },
+            methods:{
+                sayHello:function(){
+                   this.message = "Override";
+                   return this.title;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

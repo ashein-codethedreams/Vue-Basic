@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>App Instance</h1>
+        <app-side-menu></app-side-menu>
+    </div>
+    <div id="app2">
+        <h1>App Instance2</h1>
+        <app-footer></app-footer>
+    </div>
+    <script>
+        var menu ={
+            data:function(){
+                return{
+                    title:"Side Menu"
+                }
+            },
+            template:'<div><p>{{title}}</p><ul><li>Home</li><li>About</li></ul></div>'
+        }
+
+        var footer = {
+            template:'<div><p>This is footer.</p></div>'
+        }
+        
+        //Vue.component('app-side-menu',menu) Global
+        new Vue({
+            el:"#app",
+            data:{
+            },
+            components:{
+                  "app-side-menu":menu
+            }
+        })
+        new Vue({
+            el:"#app2",
+            components:{
+                  "app-footer":footer
+            }
+        })
+    </script>
+</body>
+</html>

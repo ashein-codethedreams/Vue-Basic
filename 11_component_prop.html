@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>My Blog</h1>
+        <app-post v-for="post in posts" v-bind:app-title="post.title" v-bind:app-body="post.body"></app-post>
+    </div>
+    <script>
+        var post = {
+            props:['postTitle','postBody'],
+            template:'<div><h2>{{postTitle}}</h2><p>{{postBody}}</p></div>'
+        }
+        new Vue({
+            el:"#app",
+            data:{
+                posts:[
+                    {
+                        title:"First post",
+                        body:"body of first post"
+                    },
+                    {
+                        title:"Second post",
+                        body:"body of second post"
+                    },
+                    {
+                        title:"Third post",
+                        body:"body of third post"
+                    }
+                ]
+            },
+            components:{
+                "app-post":post
+            }
+        })
+    </script>
+</body>
+</html>
